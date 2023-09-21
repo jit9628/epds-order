@@ -8,7 +8,7 @@ public class PageController {
 	@GetMapping("SignUp")
 	public ModelAndView getSignUpPage(ModelAndView MV) {
 
-		MV.setViewName("SignUp");
+		MV.setViewName("menus");
 		return MV;
 		// MV.setViewName("Test");
 		// return MV;

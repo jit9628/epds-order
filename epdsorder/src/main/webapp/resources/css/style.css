@@ -5,31 +5,114 @@
 
 .login_bg {
     background: url('../images/login-bg.jpg');
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
-    overflow-y: scroll;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    inset: 0;
+    line-height: 0;
+    width: 50%;
+    border-radius: 0 50% 50% 0;
+}
+.signUp_bg {
+    background: url('../images/signUp-bg.png');
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    inset: 0;
+    line-height: 0;
+    width: 50%;
+    border-radius: 0 50% 50% 0;
 }
 
-.login_bg h2 {
-    color: #BF9045;
-    text-transform: uppercase;
+.login_section {
+    background: #ECF6F7;
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+.login_container {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 100px;
+    position: relative;
+}
+
+.login-content {
+    padding: 5rem 0;
+}
+
+.login-content h2 {
     font-weight: bold;
-}
-
-.login_bg .card .card-body h4 {
-    text-transform: uppercase;
     text-align: center;
-    font-weight: bold;
-    color: #24408A;
+    margin-bottom: 2rem;
 }
 
-.login_bg .form-control {
-    border: 2px solid #595959;
+.login-content .user {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #ccc;
+    margin: 0px auto;
 }
 
-.btn_color {
-    background: #BF9045;
+.login-content .user img {
+    width: 100%;
+}
+
+.login-content h3 {
+    color: #16909B;
+}
+
+.login-content form .input-group input {
+    border-radius: 0 50px 50px 0;
+    border-left: none;
+    background: none;
+    padding: 11px 12px 11px 0px;
+}
+
+.login-content form .form-control:focus {
+    color: #212529;
+    background-color: none;
+    border-color: #ced4da;
+    outline: 0;
+    box-shadow: none;
+}
+
+.login-content form .input-group span {
+    border-radius: 50px 0 0 50px;
+    background: none;
+    border-right: none;
+}
+
+.login-content form button {
+    background: #FAA71B;
+    padding: 11px;
     border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
 }
+.login-content form button:hover{
+    background: #16909B;
+}
+.signUp_form input {
+    border-radius: 50px;
+    background: none;
+    padding: 11px 20px;
+}
+.signUp_form input.form-control:focus {
+    color: #212529;
+    background: none;
+    border-color: #ced4da;
+    outline: 0;
+    box-shadow: none;
+}
+
 
 /* ========== Min Section ========== */

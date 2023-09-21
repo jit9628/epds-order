@@ -11,34 +11,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @Entity
-public class MenuIteam {
+public class Privileges {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long menu_id;
-	private String menu_name;
-	private String menu_discription;
-	private String menu_url;
-	private String menu_type;
+	private Long id;
+
+	private String privileges_name;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "tbl_m_menupermissionss",joinColumns = {
-			@JoinColumn(columnDefinition = "m_id",referencedColumnName =  "menu_id")
+	@JoinTable(name = "user_privileges_permissions",joinColumns = {
+			@JoinColumn(columnDefinition = "privileges_id",referencedColumnName =  "id")
 	},
 	inverseJoinColumns= {
 			@JoinColumn(columnDefinition = "user_id",referencedColumnName = "id")
 	}
-	)
-	@JsonManagedReference
+			)
+	//@JsonManagedReference
 	private Set<User> users;
-
+	
 }

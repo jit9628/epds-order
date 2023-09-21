@@ -22,8 +22,5 @@ public class UserMenuPermission {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long permission_id;
 	private long permission_role_id;
-	private long menu_id;
-
-	
-
+	private long menu_id;	
 }

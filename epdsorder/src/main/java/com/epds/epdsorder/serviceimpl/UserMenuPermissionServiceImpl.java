@@ -2,11 +2,13 @@ package com.epds.epdsorder.serviceimpl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 
 import com.epds.epdsorder.dto.UserMenuPermissionDto;
 import com.epds.epdsorder.entity.UserMenuPermission;
 import com.epds.epdsorder.repository.UserMenuPermissionRepository;
+import com.epds.epdsorder.repository.UserRepository;
 import com.epds.epdsorder.service.UserMenuPermissionService;
 
 @Service
@@ -16,6 +18,8 @@ public class UserMenuPermissionServiceImpl implements UserMenuPermissionService 
 	private ModelMapper mapper;
 	@Autowired
 	private UserMenuPermissionRepository menuPermissionRepository;
+//	@Autowired
+//	private UserRepository userRepository;
 
 	@Override
 	public boolean addPermission(UserMenuPermissionDto userMenuPermissionDto) {

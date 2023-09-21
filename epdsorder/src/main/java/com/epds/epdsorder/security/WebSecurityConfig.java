@@ -89,7 +89,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and().authorizeRequests()
 				.antMatchers("/SignUp","/login","/api/auth/signin","/api/auth/signup","/resources/js/**","/resources/css/**","/resources/images/**","resources/**").permitAll()
-				.antMatchers("/dashboard","/save","/savemenu").permitAll()
+				.antMatchers("/dashboard","/save","/savemenu","/add-privileges","/privilegesdetails").permitAll()
 				.anyRequest().authenticated();
 		http.authenticationProvider(authenticationProvider());
 	//	http.addFilterAfter(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

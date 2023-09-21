@@ -60,11 +60,8 @@ sb.append(RendomNumbers
 System.out.println("Random Number Is : "+sb);
 return sb.toString();
 }
-
-
 public   String generateToken() {
 	StringBuilder token = new StringBuilder();
-
 	return token.append(UUID.randomUUID().toString())
 			.append(UUID.randomUUID().toString()).toString();
 }
@@ -78,6 +75,16 @@ int n = 20;
 //Get and display the alphanumeric string
 System.out.println(RandomStringValue
 	.getRandomNumber());
+
+int m=8;
+int n1=9;
+
+m=m-n1;
+n1=m+n1;
+m=n1-m;
+System.out.println("Swepping Number Is :");
+System.out.println(m);
+System.out.println(n1);
 
 }
 }

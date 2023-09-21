@@ -1,7 +1,9 @@
 package com.epds.epdsorder.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,9 +15,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
@@ -33,16 +37,24 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String firstname;
-	private String lastname;
+
 	private String username;
 	private String email;
 	private String password;
 	private String mobile;
-	 @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-     private Date registeron;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date registeron;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", insertable = true, updatable = true), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "users")
+	//@JsonBackReference
+	private Set<Privileges> privilege;
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "users")
+	@JsonBackReference
+	private Set<MenuIteam> menuIteam;
 
 	public String getFirstname() {
 		return firstname;
@@ -50,14 +62,6 @@ public class User {
 
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
 	}
 
 	public String getUsername() {
